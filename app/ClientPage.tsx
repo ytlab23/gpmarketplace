@@ -1541,7 +1541,14 @@ export default function ClientPage() {
                     Contact Support
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
-                  
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-3 bg-transparent"
+                    onClick={() => (window.location.href = "/contact")}
+                  >
+                    Schedule Demo
+                  </Button>
                 </div>
               </div>
             </div>
@@ -1618,7 +1625,14 @@ export default function ClientPage() {
                 Browse Publishers Now
                 <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
               </Button>
-              
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-xl px-12 py-5 rounded-xl bg-white/5 border-white/20 text-white hover:bg-white/10 backdrop-blur-sm"
+                onClick={() => document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })}
+              >
+                Watch 2-Min Demo
+              </Button>
             </div>
 
             {/* Trust Indicators */}

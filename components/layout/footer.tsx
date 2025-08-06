@@ -1,158 +1,87 @@
 "use client"
 
+import { ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Separator } from "@/components/ui/separator"
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react"
-import Link from "next/link"
 
 export function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">GP</span>
-              </div>
-              <span className="text-xl font-bold">GP Marketplace</span>
+    <footer className="py-16 border-t border-gray-300 bg-gray-50">
+      <div className="container mx-auto px-6">
+        <div className="grid md:grid-cols-4 gap-12">
+          <div className="md:col-span-2">
+            <div className="mb-6">
+              <span className="text-2xl font-bold">
+                <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">GP</span>
+                <span className="text-gray-900 ml-1">Marketplace</span>
+              </span>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              The world's largest guest posts marketplace connecting content creators with premium publishers. Get
-              quality backlinks at wholesale prices.
+            <p className="text-gray-600 text-lg leading-relaxed max-w-md mb-6">
+              The world's most trusted marketplace for premium guest posts and high-authority backlinks.
             </p>
-            <div className="flex space-x-4">
-              <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white p-2">
-                <Facebook className="w-4 h-4" />
-              </Button>
-              <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white p-2">
-                <Twitter className="w-4 h-4" />
-              </Button>
-              <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white p-2">
-                <Linkedin className="w-4 h-4" />
-              </Button>
-              <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white p-2">
-                <Instagram className="w-4 h-4" />
-              </Button>
-            </div>
+            <Button
+              className="bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white border-0"
+              onClick={() => window.open("https://app.gpmarketplace.com", "_blank")}
+            >
+              Login
+            </Button>
           </div>
 
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/" className="text-gray-400 hover:text-white text-sm transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/calculate-savings" className="text-gray-400 hover:text-white text-sm transition-colors">
-                  Calculate Savings
-                </Link>
-              </li>
-              <li>
-                <Link href="/testimonials" className="text-gray-400 hover:text-white text-sm transition-colors">
-                  Testimonials
-                </Link>
-              </li>
-              <li>
-                <Link href="/apply-publisher" className="text-gray-400 hover:text-white text-sm transition-colors">
-                  Become a Publisher
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-gray-400 hover:text-white text-sm transition-colors">
-                  Contact Us
-                </Link>
-              </li>
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-6 text-lg">Product</h4>
+            <ul className="space-y-4">
+              {[
+                { name: "How It Works", href: "/#how-it-works" },
+                { name: "Why Us", href: "/#features" },
+                { name: "Testimonials", href: "/testimonials" },
+                { name: "Cost Calculator", href: "/calculate-savings" },
+                { name: "Resellers", href: "/#resellers" },
+              ].map((item) => (
+                <li key={item.name}>
+                  <a
+                    href={item.href}
+                    className="text-gray-600 hover:text-gray-900 transition-colors duration-300 flex items-center group"
+                  >
+                    {item.name}
+                    <ChevronRight className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Support */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Support</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/writing-guest-post-guide"
-                  className="text-gray-400 hover:text-white text-sm transition-colors"
-                >
-                  Guest Post Writing Guide
-                </Link>
-              </li>
-              <li>
-                <Link href="/publisher-guidelines" className="text-gray-400 hover:text-white text-sm transition-colors">
-                  Publisher Guidelines
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-gray-400 hover:text-white text-sm transition-colors">
-                  Help Center
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-gray-400 hover:text-white text-sm transition-colors">
-                  Live Chat
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-gray-400 hover:text-white text-sm transition-colors">
-                  Report Issue
-                </Link>
-              </li>
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-6 text-lg">Support</h4>
+            <ul className="space-y-4">
+              {[
+                { name: "Contact Us", href: "/contact" },
+                { name: "Apply as Publisher", href: "/apply-publisher" },
+                { name: "Publisher Guidelines", href: "/publisher-guidelines" },
+                { name: "Refund Policy", href: "/refund-policy" },
+                { name: "FAQs", href: "/#faq" },
+              ].map((item) => (
+                <li key={item.name}>
+                  <a
+                    href={item.href}
+                    className="text-gray-600 hover:text-gray-900 transition-colors duration-300 flex items-center group"
+                  >
+                    {item.name}
+                    <ChevronRight className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                  </a>
+                </li>
+              ))}
             </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Stay Updated</h3>
-            <p className="text-gray-400 text-sm">
-              Get the latest guest posting tips and marketplace updates delivered to your inbox.
-            </p>
-            <div className="space-y-2">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400"
-              />
-              <Button className="w-full bg-blue-600 hover:bg-blue-700">Subscribe</Button>
-            </div>
           </div>
         </div>
 
-        <Separator className="my-8 bg-gray-800" />
-
-        {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-sm text-gray-400">
-            <div className="flex items-center space-x-2">
-              <Mail className="w-4 h-4" />
-              <span>support@gpmarketplace.com</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Phone className="w-4 h-4" />
-              <span>+1 (555) 123-4567</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <MapPin className="w-4 h-4" />
-              <span>San Francisco, CA</span>
-            </div>
-          </div>
-
-          <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-sm text-gray-400">
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms-of-service" className="hover:text-white transition-colors">
-              Terms of Service
-            </Link>
-            <Link href="/refund-policy" className="hover:text-white transition-colors">
-              Refund Policy
-            </Link>
-            <span>&copy; 2024 GP Marketplace. All rights reserved.</span>
+        <div className="border-t border-gray-300 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-600">&copy; 2024 GP Marketplace. All rights reserved.</p>
+          <div className="flex space-x-6 mt-4 md:mt-0">
+            <a href="/privacy-policy" className="text-gray-600 hover:text-gray-900 transition-colors">
+              Privacy
+            </a>
+            <a href="/terms-of-service" className="text-gray-600 hover:text-gray-900 transition-colors">
+              Terms
+            </a>
           </div>
         </div>
       </div>
